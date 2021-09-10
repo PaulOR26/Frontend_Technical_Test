@@ -24,7 +24,12 @@ module.exports = function (environment) {
   };
 
   ENV.firebase = {
-    // add firebase config here
+    apiKey: 'AIzaSyD-55DXMwUXGbHlOi8AHoH9NYDGRLEszPY',
+    authDomain: 'clarus-tech-test-9a236.firebaseapp.com',
+    projectId: 'clarus-tech-test-9a236',
+    storageBucket: 'clarus-tech-test-9a236.appspot.com',
+    messagingSenderId: '310748959255',
+    appId: '1:310748959255:web:b542eb2e564300ff268252',
   };
 
   if (environment === 'test') {

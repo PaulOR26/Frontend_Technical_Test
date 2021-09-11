@@ -51,14 +51,16 @@
         </select>
       </label>
 
-      {{#if this.errorMessage}}
-        <div class='error-message'>
-          {{this.errorMessage}}
-        </div>
-      {{/if}}
-
       <button type='submit'>Submit changes</button>
     </form>
+  {{/if}}
+
+  <button {{action 'deleteMovie'}}>Delete</button>
+
+  {{#if this.errorMessage}}
+    <div class='error-message'>
+      {{this.errorMessage}}
+    </div>
   {{/if}}
 
 </li>

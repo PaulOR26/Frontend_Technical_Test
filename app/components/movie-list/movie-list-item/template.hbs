@@ -28,6 +28,12 @@
         />
       </label>
 
+      {{#if this.errorMessage}}
+        <div class='error-message'>
+          {{this.errorMessage}}
+        </div>
+      {{/if}}
+
       <button type='submit'>Submit changes</button>
     </form>
   {{/if}}

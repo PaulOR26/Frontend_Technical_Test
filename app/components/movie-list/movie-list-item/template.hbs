@@ -13,19 +13,23 @@
       </p>
     {{/if}}
 
+    <button {{action 'handleIsEditing'}}>Edit</button>
   </div>
 
-  <form {{on 'submit' this.editMovie}}>
-    <label>
-      New title
-      <Input
-        @type='text'
-        @value={{this.newTitle}}
-        placeholder='New title..'
-        required={{true}}
-      />
-    </label>
-    <button type='submit'>Submit changes</button>
-  </form>
+  {{#if this.isEditing}}
+    <form {{on 'submit' this.editMovie}}>
+      <label>
+        New title
+        <Input
+          @type='text'
+          @value={{this.newTitle}}
+          placeholder='New title..'
+          required={{true}}
+        />
+      </label>
+
+      <button type='submit'>Submit changes</button>
+    </form>
+  {{/if}}
 
 </li>

@@ -24,11 +24,9 @@ export default class LandingPage extends Component {
 
   @tracked sortOrder;
 
-  @action onSortRating(value) {
-    this.sortOrder = value;
-  }
+  @action async loadMovies(sortValue) {
+    if (sortValue) this.sortOrder = sortValue;
 
-  @action async loadMovies() {
     const db = getFirestore();
     const moviesRef = collection(db, 'movies');
     const moviesSnapshot = await getDocs(moviesRef);
@@ -37,6 +35,12 @@ export default class LandingPage extends Component {
     moviesSnapshot.forEach((doc) => movies.push(doc));
 
     this.movies = movies;
+
+    if (this.sortOrder === 'Ascending') {
+      this.movies.sort((a, b) => a.data().rating - b.data().rating);
+    } else if (this.sortOrder === 'Descending') {
+      this.movies.sort((a, b) => b.data().rating - a.data().rating);
+    }
   }
 
   constructor(owner, args) {

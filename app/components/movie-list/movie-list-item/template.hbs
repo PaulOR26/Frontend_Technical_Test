@@ -27,6 +27,29 @@
           required={{true}}
         />
       </label>
+      <label>
+        New description
+        <Input
+          @type='text'
+          @value={{this.newDescription}}
+          placeholder='New description..'
+          required={{true}}
+        />
+      </label>
+      <label>
+        New rating
+        <select
+          value={{this.newRating}}
+          onchange={{action 'onSelectNewRating' value='target.value'}}
+        >
+          <option value=''></option>
+          <option value='5'>5</option>
+          <option value='4'>4</option>
+          <option value='3'>3</option>
+          <option value='2'>2</option>
+          <option value='1'>1</option>
+        </select>
+      </label>
 
       {{#if this.errorMessage}}
         <div class='error-message'>

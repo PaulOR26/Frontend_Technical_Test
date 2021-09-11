@@ -7,11 +7,11 @@ import podNames from 'ember-component-css/pod-names';
 export default class MovieListItem extends Component {
   styleNamespace = podNames['movie-list/movie-list-item'];
 
-  @tracked newTitle;
+  @tracked newTitle = this.movie.title;
 
-  @tracked newDescription;
+  @tracked newDescription = this.movie.description;
 
-  @tracked newRating = '';
+  @tracked newRating = this.movie.rating;
 
   @tracked isEditing = false;
 
@@ -39,9 +39,9 @@ export default class MovieListItem extends Component {
         rating: newRating,
       });
 
-      this.newTitle = undefined;
-      this.newDescription = undefined;
-      this.newRating = undefined;
+      this.newTitle = this.movie.title;
+      this.newDescription = this.movie.description;
+      this.newRating = this.movie.rating;
 
       this.args.loadMovies();
     } catch (error) {

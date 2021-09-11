@@ -2,4 +2,74 @@
   .details > h2 {
     color: #e91c50;
   }
+
+  button {
+    height: 2.8rem;
+    width: 12rem;
+
+    font-size: 1.2rem;
+
+    border-radius: 0.5rem;
+
+    padding: 0.5rem 1rem;
+
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+
+    background-color: #e91c50;
+    color: #ffffff;
+
+    border: none;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      border: 0.2rem solid #e91c50;
+      outline: none;
+      background-color: lighten(#e91c50, 5%);
+      text-decoration: underline;
+    }
+    &:active {
+      background-color: darken(#e91c50, 10%);
+    }
+  }
+  form {
+    display: flex;
+    flex-flow: column;
+  }
+
+  .error-message {
+    border: solid 0.2rem #e91c50;
+    padding: 0.5rem;
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem;
+    color: #e91c50;
+    margin-top: 1rem;
+  }
+
+  input {
+    height: 1.5rem;
+
+    font-size: 1rem;
+
+    border: 0.2rem solid #cccccc;
+    border-radius: 0.5rem;
+
+    &:focus {
+      border: 0.2rem solid #e91c50;
+      outline: none;
+    }
+  }
+
+  select {
+    width: 8rem;
+    height: 1.5rem;
+    font-size: 1rem;
+    border: 0.2rem solid #cccccc;
+    border-radius: 0.5rem;
+  }
 }

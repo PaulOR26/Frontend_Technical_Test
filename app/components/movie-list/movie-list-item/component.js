@@ -1,6 +1,6 @@
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
-import { updateDoc } from 'firebase/firestore';
+import { updateDoc, deleteDoc } from 'firebase/firestore';
 import Component from '@glimmer/component';
 import podNames from 'ember-component-css/pod-names';
 
@@ -42,6 +42,18 @@ export default class MovieListItem extends Component {
       this.newTitle = this.movie.title;
       this.newDescription = this.movie.description;
       this.newRating = this.movie.rating;
+
+      this.args.loadMovies();
+    } catch (error) {
+      this.errorMessage = error?.message;
+    }
+  }
+
+  @action async deleteMovie() {
+    this.errorMessage = undefined;
+
+    try {
+      await deleteDoc(this.args.movie.ref);
 
       this.args.loadMovies();
     } catch (error) {

@@ -1,19 +1,20 @@
 <li class={{this.styleNamespace}}>
   <div class='details'>
-    <p> {{this.movie.title}} </p>
+    <h2> {{this.movie.title}} </h2>
 
     <p>
       {{this.movie.description}}
     </p>
 
     {{#if this.movie.rating}}
-      <p>
+      <h3>
         Rating:
         {{this.movie.rating}}/5
-      </p>
+      </h3>
     {{/if}}
 
     <button {{action 'handleIsEditing'}}>Edit</button>
+    <button {{action 'deleteMovie'}}>Delete</button>
   </div>
 
   {{#if this.isEditing}}
@@ -51,11 +52,13 @@
         </select>
       </label>
 
-      <button type='submit'>Submit changes</button>
+      <div>
+        <button type='submit'>Submit changes</button>
+        <button type='button' onclick={{action 'handleCancelEdit'}}>Cancel
+          changes</button>
+      </div>
     </form>
   {{/if}}
-
-  <button {{action 'deleteMovie'}}>Delete</button>
 
   {{#if this.errorMessage}}
     <div class='error-message'>

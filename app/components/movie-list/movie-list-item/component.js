@@ -9,7 +9,13 @@ export default class MovieListItem extends Component {
 
   @tracked newTitle;
 
+  @tracked isEditing = false;
+
   @tracked errorMessage;
+
+  @action handleIsEditing() {
+    this.isEditing = !this.isEditing;
+  }
 
   @action async editMovie(event) {
     event.preventDefault();

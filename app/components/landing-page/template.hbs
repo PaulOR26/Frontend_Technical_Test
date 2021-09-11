@@ -1,6 +1,15 @@
 <div class={{this.styleNamespace}}>
   <MovieListHeader />
 
+  <select
+    class='sort-select'
+    onchange={{action 'onSortRating' value='target.value'}}
+  >
+    <option>Sort By Rating</option>
+    <option>Ascending</option>
+    <option>Descending</option>
+  </select>
+
   <MovieList @movies={{this.movies}} />
 
   <AddMovieForm @loadMovies={{this.loadMovies}} />

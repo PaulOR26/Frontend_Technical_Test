@@ -25,6 +25,14 @@ export default class MovieListItem extends Component {
     this.isEditing = !this.isEditing;
   }
 
+  @action handleCancelEdit() {
+    this.isEditing = !this.isEditing;
+
+    this.newTitle = this.movie.title;
+    this.newDescription = this.movie.description;
+    this.newRating = this.movie.rating;
+  }
+
   @action async editMovie(event) {
     event.preventDefault();
 

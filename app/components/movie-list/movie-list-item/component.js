@@ -26,11 +26,13 @@ export default class MovieListItem extends Component {
   }
 
   @action handleCancelEdit() {
+    const { title, description, rating } = this.movie;
+
     this.isEditing = !this.isEditing;
 
-    this.newTitle = this.movie.title;
-    this.newDescription = this.movie.description;
-    this.newRating = this.movie.rating;
+    this.newTitle = title;
+    this.newDescription = description;
+    this.newRating = rating;
   }
 
   @action async editMovie(event) {
@@ -40,6 +42,7 @@ export default class MovieListItem extends Component {
 
     try {
       const { newTitle, newDescription, newRating } = this;
+      const { title, description, rating } = this.movie;
 
       await updateDoc(this.args.movie.ref, {
         title: newTitle,
@@ -47,9 +50,9 @@ export default class MovieListItem extends Component {
         rating: newRating,
       });
 
-      this.newTitle = this.movie.title;
-      this.newDescription = this.movie.description;
-      this.newRating = this.movie.rating;
+      this.newTitle = title;
+      this.newDescription = description;
+      this.newRating = rating;
 
       this.args.loadMovies();
     } catch (error) {

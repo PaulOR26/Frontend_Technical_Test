@@ -9,9 +9,17 @@ export default class MovieListItem extends Component {
 
   @tracked newTitle;
 
+  @tracked newDescription;
+
+  @tracked newRating = '';
+
   @tracked isEditing = false;
 
   @tracked errorMessage;
+
+  @action onSelectNewRating(value) {
+    this.newRating = value;
+  }
 
   @action handleIsEditing() {
     this.isEditing = !this.isEditing;
@@ -23,13 +31,17 @@ export default class MovieListItem extends Component {
     this.errorMessage = undefined;
 
     try {
-      const { newTitle } = this;
+      const { newTitle, newDescription, newRating } = this;
 
       await updateDoc(this.args.movie.ref, {
         title: newTitle,
+        description: newDescription,
+        rating: newRating,
       });
 
       this.newTitle = undefined;
+      this.newDescription = undefined;
+      this.newRating = undefined;
 
       this.args.loadMovies();
     } catch (error) {

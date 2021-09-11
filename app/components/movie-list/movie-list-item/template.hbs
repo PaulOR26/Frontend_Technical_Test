@@ -1,17 +1,31 @@
 <li class={{this.styleNamespace}}>
   <div class='details'>
-    <h2>
-      {{this.movie.title}}
-    </h2>
+    <p> {{this.movie.title}} </p>
 
     <p>
       {{this.movie.description}}
     </p>
 
-    {{#if this.movie.rating}}<p>
+    {{#if this.movie.rating}}
+      <p>
         Rating:
         {{this.movie.rating}}/5
       </p>
     {{/if}}
+
   </div>
+
+  <form {{on 'submit' this.editMovie}}>
+    <label>
+      New title
+      <Input
+        @type='text'
+        @value={{this.newTitle}}
+        placeholder='New title..'
+        required={{true}}
+      />
+    </label>
+    <button type='submit'>Submit changes</button>
+  </form>
+
 </li>

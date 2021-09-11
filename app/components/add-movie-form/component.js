@@ -11,7 +11,7 @@ export default class AddMovieForm extends Component {
 
   @tracked title;
 
-  @tracked rating;
+  @tracked rating = '';
 
   @tracked errorMessage;
 
@@ -32,7 +32,7 @@ export default class AddMovieForm extends Component {
 
       this.description = undefined;
       this.title = undefined;
-      this.rating = undefined;
+      this.rating = '';
 
       this.args.loadMovies();
     } catch (error) {

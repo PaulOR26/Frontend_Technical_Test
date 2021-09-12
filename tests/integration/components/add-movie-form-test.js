@@ -17,4 +17,10 @@ module('Integration | Component | add-movie-form', function (hooks) {
 
     assert.dom('#add-movie-description-label').hasText('Description');
   });
+
+  test('title input has the correct placeholder', async function (assert) {
+    await render(hbs`<AddMovieForm />`);
+
+    assert.dom('#add-movie-title-input').hasAttribute('placeholder', 'Title..');
+  });
 });

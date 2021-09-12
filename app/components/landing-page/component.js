@@ -11,8 +11,8 @@ export default class LandingPage extends Component {
 
   @tracked sortOrder;
 
-  @action async loadMovies(sortValue) {
-    if (sortValue) this.sortOrder = sortValue;
+  @action async loadMovies(hasSortChanged, event) {
+    if (hasSortChanged) this.sortOrder = event.target.value;
 
     const db = getFirestore();
     const moviesRef = collection(db, 'movies');

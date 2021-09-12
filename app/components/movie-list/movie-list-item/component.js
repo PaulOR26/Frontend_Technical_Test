@@ -17,8 +17,8 @@ export default class MovieListItem extends Component {
 
   @tracked errorMessage;
 
-  @action onSelectNewRating(value) {
-    this.newRating = value;
+  @action onSelectNewRating(event) {
+    this.newRating = event.target.value;
   }
 
   @action handleIsEditing() {

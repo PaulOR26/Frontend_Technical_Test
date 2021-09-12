@@ -3,10 +3,7 @@
 
   <label>
     Sort by rating
-    <select
-      class='sort-select'
-      onchange={{action 'loadMovies' value='target.value'}}
-    >
+    <select class='sort-select' {{on 'change' (fn this.loadMovies true)}}>
       <option>Order...</option>
       <option>Ascending</option>
       <option>Descending</option>

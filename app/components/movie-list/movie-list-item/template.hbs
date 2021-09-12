@@ -13,8 +13,8 @@
       </h3>
     {{/if}}
 
-    <button {{action 'handleIsEditing'}} type='button'>Edit</button>
-    <button {{action 'deleteMovie'}} type='button'>Delete</button>
+    <button {{on 'click' this.handleIsEditing}} type='button'>Edit</button>
+    <button {{on 'click' this.deleteMovie}} type='button'>Delete</button>
   </div>
 
   {{#if this.isEditing}}
@@ -39,10 +39,7 @@
       </label>
       <label>
         New rating
-        <select
-          value={{this.newRating}}
-          onchange={{action 'onSelectNewRating' value='target.value'}}
-        >
+        <select value={{this.newRating}} {{on 'change' this.onSelectNewRating}}>
           <option value=''></option>
           <option value='5'>5</option>
           <option value='4'>4</option>
@@ -54,7 +51,7 @@
 
       <div>
         <button type='submit'>Submit changes</button>
-        <button onclick={{action 'handleCancelEdit'}} type='button'>Cancel
+        <button {{on 'click' this.handleCancelEdit}} type='button'>Cancel
           changes</button>
       </div>
     </form>

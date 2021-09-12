@@ -1,9 +1,6 @@
 <ul class={{this.styleNamespace}}>
   {{#each @movies as |movie|}}
-    <MovieList::MovieListItem
-      @loadMovies={{this.args.loadMovies}}
-      @movie={{movie}}
-    />
+    <MovieList::MovieListItem @loadMovies={{@loadMovies}} @movie={{movie}} />
 
     <hr />
   {{/each}}

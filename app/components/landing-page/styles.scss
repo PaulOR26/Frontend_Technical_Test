@@ -4,10 +4,18 @@
   margin: 0 auto;
 }
 
+label {
+  display: flex;
+  flex-direction: column;
+  color: #e91c50;
+  font-size: 2rem;
+}
+
 .sort-select {
   width: 12rem;
   height: 4rem;
   font-size: 1.5rem;
   border: 0.2rem solid #cccccc;
   border-radius: 0.5rem;
+  margin-bottom: 3rem;
 }

@@ -1,14 +1,17 @@
 <div class={{this.styleNamespace}}>
   <MovieListHeader />
 
-  <select
-    class='sort-select'
-    onchange={{action 'loadMovies' value='target.value'}}
-  >
-    <option>Sort By Rating</option>
-    <option>Ascending</option>
-    <option>Descending</option>
-  </select>
+  <label>
+    Sort by rating
+    <select
+      class='sort-select'
+      onchange={{action 'loadMovies' value='target.value'}}
+    >
+      <option>Order...</option>
+      <option>Ascending</option>
+      <option>Descending</option>
+    </select>
+  </label>
 
   <MovieList @loadMovies={{this.loadMovies}} @movies={{this.movies}} />
 

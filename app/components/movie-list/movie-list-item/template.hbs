@@ -13,8 +13,8 @@
       </h3>
     {{/if}}
 
-    <button {{action 'handleIsEditing'}}>Edit</button>
-    <button {{action 'deleteMovie'}}>Delete</button>
+    <button {{action 'handleIsEditing'}} type='button'>Edit</button>
+    <button {{action 'deleteMovie'}} type='button'>Delete</button>
   </div>
 
   {{#if this.isEditing}}
@@ -54,7 +54,7 @@
 
       <div>
         <button type='submit'>Submit changes</button>
-        <button type='button' onclick={{action 'handleCancelEdit'}}>Cancel
+        <button onclick={{action 'handleCancelEdit'}} type='button'>Cancel
           changes</button>
       </div>
     </form>

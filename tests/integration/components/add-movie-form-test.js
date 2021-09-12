@@ -11,4 +11,10 @@ module('Integration | Component | add-movie-form', function (hooks) {
 
     assert.dom('#add-movie-title-label').hasText('Title');
   });
+
+  test('description label has the correct text', async function (assert) {
+    await render(hbs`<AddMovieForm />`);
+
+    assert.dom('#add-movie-description-label').hasText('Description');
+  });
 });
